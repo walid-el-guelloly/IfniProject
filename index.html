@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script src="https://unpkg.com/@tailwindcss/browser@4"></script> -->
+    <!-- tailwind elements package -->
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tw-elements/css/tw-elements.min.css"
+    />
+
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          fontFamily: {
+            sans: ["Roboto", "sans-serif"],
+            body: ["Roboto", "sans-serif"],
+            mono: ["ui-monospace", "monospace"],
+          },
+        },
+        corePlugins: {
+          preflight: false,
+        },
+      };
+    </script>
+    <!-- Fin tailwind elements package -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  </head>
+  <body class="font-semibold">
+    <!-- animmation de chargement des elements -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Fin animmation -->
+    <div
+      class="relative h-screen w-full bg-cover bg-no-repeat"
+      style="
+        background-image: url('backimg.jpg');
+        background-position: 100% bottom;
+      "
+    >
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-black/80"></div>
+
+      <!-- Navbar -->
+      <nav
+        id="navbar"
+        class="fixed top-0 left-0 right-0 z-50 container mx-auto py-3 px-5 xl:py-4 xl:px-20"
+        data-aos="zoom-in-up"
+      >
+        <div class="flex items-center justify-between">
+          <div>
+            <a href="#hero">
+              <img class="w-50 h-7 md:w-58 md:h-9" src="IfniLogo.png" />
+            </a>
+          </div>
+          <div class="hidden md:flex space-x-8 items-center">
+            <!-- <a href="#" class="text-white hover:text-blue-700">Home1</a> -->
+            <a href="#" class=" text-blue-700 underline underline-offset-8 decoration-blue-700">Home</a>
+            <a href="#" class="text-white hover:text-blue-700">Blog</a>
+            <a href="#" class="text-white hover:text-blue-700">History</a>
+            <a href="#" class="text-white hover:text-blue-700">Contact</a>
+            <a
+              href="#"
+              class="py-2 px-6 bg-cyan-500 text-white rounded-full hover:bg-blue-700"
+              >Login</a
+            >
+            
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section
+        id="hero"
+        class="relative flex items-center h-screen px-6 "
+        data-aos="zoom-in-up"
+      >
+        <div
+          class="container justify-center items-center h-130 md:h-120 mx-auto flex flex-col-reverse md:flex-row md:space-x-6 mt-10"
+        >
+          <div
+            class="md:w-1/2 text-white flex flex-col space-y-6 py-6 md:ml-5 md:py4 justify-center text-center md:text-left"
+          >
+            <h1 class="text-4xl md:text-7xl font-extrabold">
+              Explore Sidi Ifni
+            </h1>
+            <p class="text-lg mb-6 text-justify">
+              Discover the authentic beauty of Sidi Ifni, a Moroccan treasure
+              where colonial history meets breathtaking landscapes. Stroll along
+              wild beaches, wander through vibrant markets, and immerse yourself
+              in a rich culture blending land and sea.
+            </p>
+            <div class="relative w-32 group">
+              <div
+                class="absolute transitiona-all duration-1000 opacity-40 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#3f54c0] to-[#020a7a] rounded-xl blur-lg group-hover:opacity-70 group-hover:-inset-1 group-hover:duration-200 animate-tilt"
+              ></div>
+              <a
+                href="#author"
+                title="Get quote now"
+                class="relative inline-flex items-center justify-center px-6 py-3 text-lg font-bold text-white transition-all duration-200 bg-cyan-500 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                role="button"
+                >Explore
+              </a>
+            </div>
+
+            <!-- <a
+              href="#"
+              class="self-center md:self-start py-2 px-6  text-white rounded-full hover:bg-blue-700 transition-all duration-200 bg-gray-900 font-pj  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+              >Explore</a
+            > -->
+          </div>
+          <div
+            class="flex justify-center items-center pt-5 md:pt-0 md:w-1/2 w-full"
+          >
+            <!-- -----------------Caroussel-------------------- -->
+            <div
+              id="carouselExampleCaptions"
+              class="relative max-w-lg mx-auto rounded-xl shadow-lg shadow-gray-600 overflow-hidden"
+              data-twe-carousel-init
+              data-twe-ride="carousel"
+            >
+              <!--Carousel indicators-->
+              <div
+                class="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
+                data-twe-carousel-indicators
+              >
+                <button
+                  type="button"
+                  data-twe-target="#carouselExampleCaptions"
+                  data-twe-slide-to="0"
+                  data-twe-carousel-active
+                  class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-twe-target="#carouselExampleCaptions"
+                  data-twe-slide-to="1"
+                  class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-twe-target="#carouselExampleCaptions"
+                  data-twe-slide-to="2"
+                  class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+
+              <!--Carousel items-->
+              <div
+                class="relative w-full overflow-hidden after:clear-both after:block after:content-['']"
+              >
+                <!--First item-->
+                <div
+                  class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                  data-twe-carousel-active
+                  data-twe-carousel-item
+                  style="backface-visibility: hidden"
+                >
+                  <img src="Barandilla.jpg" class="block w-full" alt="..." />
+                  <div
+                    class="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block"
+                  >
+                    <!-- <h5 class="text-xl">First slide label</h5>
+                    <p>
+                      Some representative placeholder content for the first slide.
+                    </p> -->
+                  </div>
+                </div>
+                <!--Second item-->
+                <div
+                  class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                  data-twe-carousel-item
+                  style="backface-visibility: hidden"
+                >
+                  <img src="Lmrssa.webp" class="block w-full" alt="..." />
+                  <div
+                    class="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block"
+                  >
+                    <!-- <h5 class="text-xl">Second slide label</h5>
+                    <p>
+                      Some representative placeholder content for the second slide.
+                    </p> -->
+                  </div>
+                </div>
+                <!--Third item-->
+                <div
+                  class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                  data-twe-carousel-item
+                  style="backface-visibility: hidden"
+                >
+                  <img src="LgziraIMG.jpg" class="block w-full" alt="..." />
+                  <div
+                    class="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block"
+                  >
+                    <!-- <h5 class="text-xl">Third slide label</h5>
+                    <p>
+                      Some representative placeholder content for the third slide.
+                    </p> -->
+                  </div>
+                </div>
+              </div>
+
+              <!--Carousel controls - prev item-->
+              <button
+                class="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+                type="button"
+                data-twe-target="#carouselExampleCaptions"
+                data-twe-slide="prev"
+              >
+                <span class="inline-block h-8 w-8">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="h-6 w-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.75 19.5L8.25 12l7.5-7.5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                  >Previous</span
+                >
+              </button>
+              <!--Carousel controls - next item-->
+              <button
+                class="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+                type="button"
+                data-twe-target="#carouselExampleCaptions"
+                data-twe-slide="next"
+              >
+                <span class="inline-block h-8 w-8">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="h-6 w-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                  >Next</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Author section -->
+    <section id="author">
+      <div class="mx-auto my-24 text-center">
+        <h2
+          id="typed-text"
+          class="font-extrabold text-4xl px-5"
+          data-aos="zoom-in-up"
+        >
+          Key Personalities in SIDI IFNI History :
+        </h2>
+        <p class="mt-8 max-w-5xl mx-auto px-5" data-aos="zoom-in-up">
+          <span class="text-blue-500">SIDI IFNI</span> has marked history thanks
+          to influential figures. Of the king
+          <span class="text-slate-900">Hassan II</span>, who recovered the city
+          in 1969, from <span class="text-slate-900">Mustapha Baitas</span>, man
+          politician from the region, through the historian
+          <span class="text-slate-900">René Pélissier</span>, everyone
+          contributed to making this city a symbol of memory and identity.
+        </p>
+        <div
+          class="mt-16 flex flex-col space-x-0 space-y-5 md:space-x-5 md:flex-row md:space-y-0 px-5"
+          data-aos="zoom-in-up"
+        >
+          <div
+            class="md:w-1/3 bg-slate-100 flex flex-col p-6 space-y-3 rounded-lg border border-slate-300 items-center shadow-md transition-shadow duration-300 hover:shadow-2xl hover:bg-slate-200"
+          >
+            <img src="HassanII.jpg" alt="me" class="w-16 rounded-full -mt-14" />
+            <h1 class="font-bold text-lg text-blue-800">Hassan II</h1>
+            <p class="leading-5 text-sm text-slate-700">
+              Late HM Hassan II: The late King of Morocco played a key role in
+              the recovery of Sidi Ifni in 1969. His visit to Sidi Ifni on the
+              18th May 1972 reinforced the strategic importance of the city and
+              Saharan provinces for the Kingdom.
+            </p>
+          </div>
+          <div
+            class="md:w-1/3 bg-slate-100 flex flex-col p-6 space-y-3 rounded-lg border border-slate-300 items-center shadow-md transition-shadow duration-300 hover:shadow-2xl hover:bg-slate-200"
+          >
+            <img src="ba1.jpg" alt="me" class="w-16 rounded-full -mt-14" />
+            <h1 class="font-bold text-lg text-blue-800">Mustapha Baïtas</h1>
+            <p class="leading-5 text-sm text-slate-700">
+              Mustapha Baïtas: Born May 7, 1977 in Sidi Ifni, he is a man
+              Moroccan politician member of the National Rally of independent
+              (RNI). Since October 7, 2021, he has held the position Minister
+              Delegate to the Head of Government in charge of Relations with
+              parliament and government spokesperson.
+            </p>
+          </div>
+          <div
+            class="md:w-1/3 bg-slate-100 flex flex-col p-6 space-y-3 rounded-lg border border-slate-300 items-center shadow-lg transition-shadow duration-300 hover:shadow-2xl hover:bg-slate-200"
+          >
+            <img src="rrr.jpeg" alt="me" class="w-16 rounded-full -mt-14" />
+            <h1 class="font-bold text-lg text-blue-800">René Pélissier</h1>
+            <p class="leading-5 text-sm text-slate-700">
+              René Pélissier: Historian and specialist in Portuguese-speaking
+              Africa and Spanish-speaking, he wrote on the history of Sidi Ifni,
+              notably in connection with the retrocession of this territory from
+              Spain to Morocco in 1969.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-slate-900">
+      <div class="container mx-auto px-3 py-3 text-center text-slate-400">
+        Copyright
+        <a href="https://github.com/walid-el-guelloly" target="_blank"
+          >©Dev Walid</a
+        >
+        2025
+      </div>
+    </footer>
+    <!-- link avec le fichier externe js -->
+    <script src="index.js"></script>
+    <!-- Fin link avec le fichier externe js -->
+
+    <!-- script pour chargement des elements de la page -->
+    <script>
+      AOS.init();
+    </script>
+    <!-- Fin de script -->
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
+
+
+   
+  </body>
+</html>
